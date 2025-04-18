@@ -1,0 +1,48 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="StupidWareGames.CrazyFilter.MainWindow"
+        Title="Crazy Filter"
+        Width="1200" Height="800">
+
+    <Grid ColumnDefinitions="250,*,250" RowDefinitions="Auto,*">
+        <!-- Left: Filter Dropdowns -->
+        <ScrollViewer Grid.Row="1" Grid.Column="0">
+            <Border Padding="5">
+                <StackPanel Name="FilterDropdownPanel" />
+            </Border>
+        </ScrollViewer>
+
+        <!-- Center: Image / Camera Feed -->
+        <Border Grid.Row="1" Grid.Column="1" Background="#666666" Padding="5">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <RadioButton Content="Camera Mode"
+                                GroupName="InputMode"
+                                IsChecked="True"
+                                Name="CameraModeToggle"
+                                Margin="5"/>
+                    <RadioButton Content="Upload Image"
+                                GroupName="InputMode"
+                                Name="UploadModeToggle"
+                                Margin="5"/>
+                </StackPanel>
+                <ComboBox Name="CameraSelector"
+                        Width="200"
+                        Margin="10"
+                        SelectionChanged="OnCameraSelected" />
+
+                
+            </StackPanel>
+        </Border>
+
+        <!-- Right: Captured Stills / Output -->
+        <ScrollViewer Grid.Row="1" Grid.Column="2">
+            <Border Padding="5">
+                <StackPanel Name="CapturePanel">
+                    <TextBlock Text="Captured Images" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <!-- Captured thumbnails go here -->
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
+    </Grid>
+</Window>
